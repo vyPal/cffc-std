@@ -1,0 +1,11 @@
+package main;
+
+export extern vararg func printf(format: *i8): void;
+
+export func print(text: *i8): void {
+	printf("%s", text);
+}
+
+export func println(text: *i8): void {
+	printf("%s\n", text);
+}
