@@ -2,6 +2,7 @@ name: std
 description: The CaffeineC standard library
 version: 1.0.0
 main: src/main.cffc
+source: src
 dependencies: []
 author: vyPal
 license: GPL-3.0
