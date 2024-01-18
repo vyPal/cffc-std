@@ -1,11 +1,11 @@
 package std;
 
-extern vararg func printf(fmt: *i8): i32;
+export extern vararg func printf(fmt: *i8): i32;
 extern func strcat(dest: *i8, src: *i8): *i8;
 extern func malloc(size: i64): *i8;
 extern func strlen(s: *i8): i64;
 extern func scanf(format: *i8, buffer: *i8): i32;
-extern vararg func sprintf(str: *i8, format: *i8): i32;
+export extern vararg func sprintf(str: *i8, format: *i8): i32;
 
 export func print(format: *i8) {
   printf(format);
