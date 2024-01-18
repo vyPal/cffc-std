@@ -19,7 +19,7 @@ export func println(format: *i8) {
 export func input(prompt: *i8): *i8 {
   var buffer: *i8 = malloc(256);
   printf(prompt);
-  scanf("%255s", buffer);
+  scanf("%255[^\n]", buffer);
   return buffer;
 }
 
