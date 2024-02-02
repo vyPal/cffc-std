@@ -24,9 +24,7 @@ export func input(prompt: *i8): *i8 {
 }
 
 export func concat(s1: *i8, s2: *i8): *i8 {
-  var len1: i64 = strlen(s1);
-  var len2: i64 = strlen(s2);
-  var result: *i8 = malloc(len1 + len2 + 1);
+  var result: *i8 = malloc(strlen(s1) + strlen(s2) + 1);
   strcat(result, s1);
   strcat(result, s2);
   return result;
