@@ -2,7 +2,7 @@ package random;
 
 export extern func rand(): i32;
 export extern func srand(seed: i32): void;
-export extern func time(seed: i32): i32;
+export extern func time(seed: *i8): i32;
 
 export func randInit(): void {
   srand(time(null));
