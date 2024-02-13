@@ -1,0 +1,14 @@
+package random;
+
+extern func rand(): i32;
+extern func srand(seed: i32): void;
+extern func time(seed: i32): i32;
+
+func randInit(): void {
+  srand(time(null));
+}
+
+func randInt(min: i32, max: i32): i32 {
+	var maxmin: i32 = max - min + 1;
+	return min + rand() % maxmin;
+}
