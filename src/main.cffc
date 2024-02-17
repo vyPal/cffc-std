@@ -2,3 +2,4 @@ package main;
 
 import "io.cffc";
 import "rand.cffc";
+import "strings.cffc";
