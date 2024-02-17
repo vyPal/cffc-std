@@ -4,6 +4,7 @@ extern func strlen(s: *i8): i32;
 extern func strcpy(dest: *i8, src: *i8): *i8;
 extern func strcat(dest: *i8, src: *i8): *i8;
 extern func strcmp(s1: *i8, s2: *i8): i32;
+extern func malloc(size: i32): *i8;
 
 export class String {
   string: *i8;
@@ -16,12 +17,14 @@ export class String {
     return strlen(this.string);
   }
 
-  func equals(other: String): i1 {
-    return strcmp(this.string, other.string) == 0;
+  func equals(other: *String): i1 {
+    var result: i32 = strcmp(this.string, other.string);
+    var cmp: i32 = result == 0;
+    return cmp;
   }
 
   func op "+"(s2: *String): *String {
-    var result: *i8 = malloc(strlen(this.string) + strlen(s2) + 1);
+    var result: *i8 = malloc(strlen(this.string) + strlen(s2) + (1):i32);
     strcat(result, this.string);
     strcat(result, s2);
     return new String(result);
