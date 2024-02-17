@@ -1,0 +1,33 @@
+package strings;
+
+extern func strlen(s: *i8): i32;
+extern func strcpy(dest: *i8, src: *i8): *i8;
+extern func strcat(dest: *i8, src: *i8): *i8;
+extern func strcmp(s1: *i8, s2: *i8): i32;
+
+export class String {
+  string: *i8;
+
+  func constructor(s: *i8) {
+    this.string = s;
+  }
+
+  func length(): i32 {
+    return strlen(this.string);
+  }
+
+  func equals(other: String): bool {
+    return strcmp(this.string, other.string) == 0;
+  }
+
+  func op "+"(s2: *String): *String {
+    var result: *i8 = malloc(strlen(this.string) + strlen(s2) + 1);
+    strcat(result, this.string);
+    strcat(result, s2);
+    return new String(result);
+  }
+
+  func get "*i8"(): *i8 {
+    return this.string;
+  }
+}
