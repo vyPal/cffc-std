@@ -16,7 +16,7 @@ export class String {
     return strlen(this.string);
   }
 
-  func equals(other: String): bool {
+  func equals(other: String): i1 {
     return strcmp(this.string, other.string) == 0;
   }
 
