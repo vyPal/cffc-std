@@ -17,7 +17,7 @@ export class String {
     return strlen(this.string);
   }
 
-  func equals(other: *String): i1 {
+  func op "=="(other: *String): i1 {
     var result: i32 = strcmp(this.string, other.string);
     var cmp: i32 = result == 0;
     return cmp;
