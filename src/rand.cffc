@@ -1,10 +1,10 @@
 package random;
 
-export extern func rand(): i32;
-export extern func srand(seed: i32): void;
-export extern func time(seed: *i8): i32;
+extern func rand(): i32;
+extern func srand(seed: i32): void;
+extern func time(seed: *i8): i32;
 
-export func randInit(): void {
+export func initRandom(): void {
   srand(time(null));
 }
 
