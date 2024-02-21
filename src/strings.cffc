@@ -5,6 +5,9 @@ extern func strcpy(dest: *i8, src: *i8): *i8;
 extern func strcat(dest: *i8, src: *i8): *i8;
 extern func strcmp(s1: *i8, s2: *i8): i32;
 extern func malloc(size: i32): *i8;
+extern func free(ptr: *i8): void;
+extern func atoi(s: *i8): i32;
+extern func atof(s: *i8): f32;
 
 export class String {
   string: *i8;
@@ -13,8 +16,20 @@ export class String {
     this.string = s;
   }
 
+  func destructor() {
+    free(this.string);
+  }
+
   func length(): i32 {
     return strlen(this.string);
+  }
+
+  func parseI32(): i32 {
+    return atoi(this.string);
+  }
+
+  func parseF32(): f32 {
+    return atof(this.string);
   }
 
   func op "=="(other: *String): i1 {
@@ -32,5 +47,13 @@ export class String {
 
   func get "*i8"(): *i8 {
     return this.string;
+  }
+
+  func get "i32"(): i32 {
+    return atoi(this.string);
+  }
+
+  func get "f32"(): f32 {
+    return atof(this.string);
   }
 }

@@ -36,9 +36,17 @@ string: *i8
 Creates a new instance of the `String` class and sets the value of the `string` field to `s`
 #### **Method `length(): i32`**
 Returns the length of the string (not counting the null terminator)
+#### **Method `parseI32(): i32`**
+Uses the clang `atoi()` function to parse an `i32` from the instance of the `String` class
+#### **Method `parseF32(): f32`**
+Uses the clang `atof()` function to parse an `f32` from the instance of the `String` class
 #### **Operator `==`**
 Defines the comparison function for equals operator when used on two instances of this class
 #### **Operator `+`**
 Defines the function for addition operator when used on two instances of this class
 #### **Getter `*i8`**
 Defines the function for when an instance of this class is requested as a `*i8`
+#### **Getter `i32`**
+Same as `parseI32()`
+#### **Getter `f32`**
+Same as `parseF32()`
