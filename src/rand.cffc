@@ -1,4 +1,4 @@
-package random;
+package rand;
 
 extern func rand(): i32;
 extern func srand(seed: i32): void;

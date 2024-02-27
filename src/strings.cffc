@@ -1,9 +1,10 @@
-package strings;
+package str;
 
 extern func strlen(s: *i8): i32;
 extern func strcpy(dest: *i8, src: *i8): *i8;
 extern func strcat(dest: *i8, src: *i8): *i8;
 extern func strcmp(s1: *i8, s2: *i8): i32;
+extern func strncmp(s1: *i8, s2: *i8, n: i32): i32;
 extern func malloc(size: i32): *i8;
 extern func free(ptr: *i8): void;
 extern func atoi(s: *i8): i32;
@@ -31,11 +32,15 @@ export class String {
   func parseF32(): f32 {
     return atof(this.string);
   }
+  
+  func startsWith(prefix: *String): i1 {
+    var result: i32 = strncmp(this.string, prefix.string, strlen(prefix.string));
+    return result == 0;
+  }
 
   func op "=="(other: *String): i1 {
     var result: i32 = strcmp(this.string, other.string);
-    var cmp: i32 = result == 0;
-    return cmp;
+    return result == 0;
   }
 
   func op "+"(s2: *String): *String {
